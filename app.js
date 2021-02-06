@@ -19,7 +19,7 @@ const getFood = data => {
                 <img src="${data.meals[i].strMealThumb}" class="card-img-top">
                     <div class=" card-body">
                         <h5 class="card-title">${data.meals[i].strMeal}</h5>
-                        <button href="#"  onclick="showMealDetails('${data.meals[i].idMeal}');" class="btn btn-primary btn-sm">Details</button>
+                        <button onclick="showMealDetails('${data.meals[i].idMeal}');" class="btn btn-primary btn-sm">Details</button>
                     </div>
                 </div> 
             </div>`;
@@ -30,8 +30,20 @@ const getFood = data => {
 
 const showMealDetails = meal => {
     const mealUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal}`
-    // console.log(mealUrl);
+    const detailsBox = document.getElementById('details-container');
+    detailsBox.style.display = 'block';
+
     fetch(mealUrl)
         .then(res => res.json())
-        .then(mealData => console.log(mealData))
+        .then(mealData => showMeal(mealData))
+}
+
+function showMeal(m) {
+    console.log(m.meals[0]);
+    /**
+     * need to fetch meal image
+     *  title = strMeal
+     *  ingredients 
+     *  strIngredient1, strIngredient2, 3,4, 5,6,7
+     */
 }
