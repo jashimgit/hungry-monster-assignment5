@@ -11,3 +11,7 @@
 #details-container {
     display: none;
 }
+
+.list-group-item {
+    border: none;
+}

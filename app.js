@@ -48,16 +48,49 @@ function showMeal(m) {
     let detailBox = document.getElementById('details-container');
     detailBox.style.display = "block";
     let foodItemContainer = document.getElementById("food-details")
-
     const item = `<div class="card" >
             <img src="${m.meals[0].strMealThumb}" class="card-img-top" id="card-image" height="300px" width="auto">
             <div class=" card-body">
-                <h5 class="card-title">${m.meals[0].strMeal}</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quasi eaque in quibusdam
-                    molestias</p>
-                <ul id="ingredients">
-
-                </ul>
+                <h3 class="card-title">${m.meals[0].strMeal}</h3>
+                <h5>Ingredients</h5>
+                <ul class="list-group">
+                <li class="list-group-item">
+                  <input class="form-check-input me-1" type="checkbox" checked value="" aria-label="...">
+                  ${m.meals[0].strIngredient1}
+                </li>
+                <li class="list-group-item">
+                  <input class="form-check-input me-1" type="checkbox" checked value="" aria-label="...">
+                  ${m.meals[0].strIngredient2}
+                </li>
+                <li class="list-group-item">
+                  <input class="form-check-input me-1" type="checkbox" checked value="" aria-label="...">
+                  ${m.meals[0].strIngredient4}
+                </li>
+                <li class="list-group-item">
+                  <input class="form-check-input me-1" type="checkbox" checked value="" aria-label="...">
+                  ${m.meals[0].strIngredient4}
+                </li>
+                <li class="list-group-item">
+                  <input class="form-check-input me-1" type="checkbox" checked value="" aria-label="...">
+                  ${m.meals[0].strIngredient5}
+                </li>
+                <li class="list-group-item">
+                  <input class="form-check-input me-1" type="checkbox" checked value="" aria-label="...">
+                  ${m.meals[0].strIngredient6}
+                </li>
+                <li class="list-group-item">
+                  <input class="form-check-input me-1" type="checkbox" checked value="" aria-label="...">
+                  ${m.meals[0].strIngredient7}
+                </li>
+                <li class="list-group-item">
+                  <input class="form-check-input me-1" type="checkbox" checked value="" aria-label="...">
+                  ${m.meals[0].strIngredient8}
+                </li>
+                <li class="list-group-item">
+                  <input class="form-check-input me-1" type="checkbox" checked value="" aria-label="...">
+                  ${m.meals[0].strIngredient9}
+                </li>
+              </ul>
             </div>
         </div>`
     foodItemContainer.innerHTML = item;
