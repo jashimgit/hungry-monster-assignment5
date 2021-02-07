@@ -19,7 +19,7 @@ const getFood = data => {
                 <img src="${data.meals[i].strMealThumb}" class="card-img-top">
                     <div class=" card-body">
                         <h5 class="card-title">${data.meals[i].strMeal}</h5>
-                        <button onclick="showMealDetails('${data.meals[i].idMeal}');" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">Details</button>
+                        <button onclick="showMealDetails('${data.meals[i].idMeal}');" class="btn btn-primary btn-sm">Details</button>
                     </div>
                 </div> 
             </div>`;
@@ -30,25 +30,41 @@ const getFood = data => {
 
 const showMealDetails = meal => {
     const mealUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal}`
-    const detailsBox = document.getElementById('details-container');
 
-    
-
+    // console.log(detailBox);
     fetch(mealUrl)
         .then(res => res.json())
         .then(mealData => showMeal(mealData))
 }
 
 
-var modalTitle = document.getElementById('modal-title').innerText;
+
 // show individual meal details 
 function showMeal(m) {
-    console.log(m.meals[0]);
-    console.log(m.meals[0].idMeal);
-    console.log(m.meals[0].strMeal);
+    // console.log(m.meals[0]);
+    // console.log(m.meals[0].idMeal);
+    // console.log(m.meals[0].strMeal);
 
+    let detailBox = document.getElementById('details-container');
+    detailBox.style.display = "block";
+    let foodItemContainer = document.getElementById("food-details")
 
-    console.log(modalTitle);
+    const item = `<div class="card" >
+            <img src="${m.meals[0].strMealThumb}" class="card-img-top" id="card-image" height="300px" width="auto">
+            <div class=" card-body">
+                <h5 class="card-title">${m.meals[0].strMeal}</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quasi eaque in quibusdam
+                    molestias</p>
+                <ul id="ingredients">
+
+                </ul>
+            </div>
+        </div>`
+    foodItemContainer.innerHTML = item;
+
+    // cardImage.src = 'm.meals[0].idMeal';
+    // document.getElementById("card-image").src = `https://www.themealdb.com/images/media/meals/${m.meals[0].strMealThumb}`;
+
 
     /**
      * need to fetch meal image
