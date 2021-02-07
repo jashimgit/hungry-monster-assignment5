@@ -88,6 +88,10 @@ const showMeal = m => {
                   <input class="form-check-input me-1" type="checkbox" checked value="" aria-label="...">
                   ${m.meals[0].strIngredient9}
                 </li>
+				<li class="list-group-item">
+                  <input class="form-check-input me-1" type="checkbox" checked value="" aria-label="...">
+                  ${m.meals[0].strIngredient10}
+                </li>
               </ul>
             </div>
         </div>`
