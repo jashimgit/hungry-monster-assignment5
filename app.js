@@ -19,7 +19,7 @@ const getFood = data => {
                 <img src="${data.meals[i].strMealThumb}" class="card-img-top">
                     <div class=" card-body">
                         <h5 class="card-title">${data.meals[i].strMeal}</h5>
-                        <button onclick="showMealDetails('${data.meals[i].idMeal}');" class="btn btn-primary btn-sm">Details</button>
+                        <button onclick="showMealDetails('${data.meals[i].idMeal}');" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">Details</button>
                     </div>
                 </div> 
             </div>`;
@@ -31,15 +31,25 @@ const getFood = data => {
 const showMealDetails = meal => {
     const mealUrl = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal}`
     const detailsBox = document.getElementById('details-container');
-    detailsBox.style.display = 'block';
+
+    
 
     fetch(mealUrl)
         .then(res => res.json())
         .then(mealData => showMeal(mealData))
 }
 
+
+var modalTitle = document.getElementById('modal-title').innerText;
+// show individual meal details 
 function showMeal(m) {
     console.log(m.meals[0]);
+    console.log(m.meals[0].idMeal);
+    console.log(m.meals[0].strMeal);
+
+
+    console.log(modalTitle);
+
     /**
      * need to fetch meal image
      *  title = strMeal
